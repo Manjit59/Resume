@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Project Showcase</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+        }
+
+        .navbar a {
+            float: left;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+            font-size: 17px;
+            transition: background-color 0.3s ease;
+        }
+
+        .navbar a:hover {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .navbar a.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(-100%);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+
+        .navbar a {
+            animation: slideIn 0.5s;
+            animation-delay: calc(var(--delay) * 0.15s);
+            animation-fill-mode: forwards;
+        }
+
+        .project-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+        }
+
+        .project-card {
+            width: 300px;
+            height: 300px;
+            perspective: 1000px;
+            margin: 20px;
+            position: relative;
+        }
+
+        .project-card-inner {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+
+        .project-card:hover .project-card-inner {
+            transform: rotateY(180deg);
+        }
+
+        .project-card-front,
+        .project-card-back {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            backface-visibility: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+
+        .project-card-front {
+            background-color: #f1f1f1;
+            color: #333;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .project-card-back {
+            background-color: #333;
+            color: #fff;
+            transform: rotateY(180deg);
+            flex-direction: column;
+            font-size: 15px;
+            padding: 30px;
+        }
+
+        .project-card-back h2,
+        .project-card-back p,
+        .project-card-back a {
+            margin-bottom: 10px;
+        }
+
+        /* Expanded screen styles */
+        .expanded-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: none;
+            z-index: 9999;
+            overflow: auto;
+        }
+
+        .expanded-screen-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 600px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+        }
+
+        .expanded-screen-content h2 {
+            margin-top: 0;
+        }
+
+        .expanded-screen-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #333;
+            font-size: 20px;
+            cursor: pointer;
+        }
+                   
+          .expanded-screen-content .screenshots {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+          }
+          
+          .expanded-screen-content .screenshots img {
+            width: 25%;
+            height: auto;
+            margin: 5px;
+            cursor: pointer;
+          }
+          
+          .expanded-screen-content .expanded-image {
+            display: none;
+            max-width: 100%;
+            max-height: 100%;
+            margin: 0 auto;
+          }
+          
+          .expanded-screen-content .expanded-image.active {
+            display: block;
+          }
+          
+          
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="Home.html" style="--delay: 1;">Home</a>
+        <a href="project.html" style="--delay: 2;" class="active">Projects</a>
+        <a href="Intrest.html" style="--delay: 3;">Intrests</a>
+        <a href="resume.html" style="--delay: 4;">Resume</a>
+        <a href="Home.html" style="--delay: 5;">Contact Me</a>
+    </div>
+
+    <div class="project-container">
+        <div class="project-card">
+            <div class="project-card-inner">
+                <div class="project-card-front">
+                    <div class="project-card-title">
+                        Recruitment Management System
+                    </div>
+                </div>
+                <div class="project-card-back">
+                    <h2>Recruitment Management System</h2>
+                    <p>It is a simple project that will help a certain company manage their recruitment or job hiring process, and
+                        also can be accessed online. The purpose of this project is to help a certain company store, process,
+                        manage, and track all the data that are related to their recruitment processes.</p>
+                    <a href="#" class="learn-more" data-index="0">Learn More</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-card-inner">
+                <div class="project-card-front">
+                    <div class="project-card-title">
+                        Exam Cell Automation System
+                    </div>
+                </div>
+                <div class="project-card-back">
+                    <h2>Exam Cell Automation System</h2>
+                    <p>This system allows students to enroll themselves into the system by registering their names or by sharing
+                        details to admin. This is done by providing their personal and all the necessary details like Name, email,
+                        examination, semester, etc</p>
+                    <a href="#" class="learn-more" data-index="1">Learn More</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="project-card">
+            <div class="project-card-inner">
+                <div class="project-card-front">
+                    <div class="project-card-title">
+                        Test Coverage Analyzer for Object Oriented Programs
+                    </div>
+                </div>
+                <div class="project-card-back">
+                    <h2>Test Coverage Analyzer for Object Oriented Programs</h2>
+                    <p>It is a Python based application that allows to take a Java Code file as input then provides some options
+                        such as Condition Coverage, Path Coverage, Function Coverage and Draw Control Flow Graph(CFG) for the
+                        Java Code file. The actions will be performed and displayed in the screen as well as save a copy as pdf
+                        form in the system.</p>
+                    <a href="#" class="learn-more" data-index="2">Learn More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add more project cards here -->
+
+    </div>
+
+    <!-- Add expanded screens for each project card -->
+<div class="expanded-screen">
+    <div class="expanded-screen-content">
+        <h2>Expanded Screen</h2>
+        <p>This is the expanded screen.</p>
+        <a class="expanded-screen-close">&times;</a>
+    </div>
+</div>
+
+<div class="expanded-screen">
+    <div class="expanded-screen-content">
+        <h2>Expanded Screen</h2>
+        <p>This is another expanded screen.</p>
+        <a class="expanded-screen-close">&times;</a>
+    </div>
+</div>
+
+<div class="expanded-screen">
+    <div class="expanded-screen-content">
+      <h2>Test Coverage Analyzer for Object-Oriented Programs</h2>
+      <p>It is a Python-based application that allows you to analyze Java code files. The application provides various options such as Condition Coverage, Path Coverage, Function Coverage, and the ability to draw Control Flow Graph (CFG) for the Java code file. The results are displayed on the screen and can also be saved as a PDF file on your system.</p>
+      <p>Click on the image to view in zoom </p>
+      <div class="screenshots">
+        <img src="Source/ScreenShots/TCA/Screenshot1.png" alt="Screenshot 1" onclick="showExpandedImage(this)">
+        <img src="Source/ScreenShots/TCA/Screenshot2.png" alt="Screenshot 2" onclick="showExpandedImage(this)">
+        <img src="Source/ScreenShots/TCA/Screenshot3.png" alt="Screenshot 3" onclick="showExpandedImage(this)">
+        <img src="Source/ScreenShots/TCA/Screenshot4.png" alt="Screenshot 4" onclick="showExpandedImage(this)">
+        <img src="Source/ScreenShots/TCA/Screenshot5.png" alt="Screenshot 5" onclick="showExpandedImage(this)">
+      </div>
+      <p>For more details and source code, you can check out the project on GitHub:</p>
+      <a href="https://github.com/Manjit59/Java-Code-Coverage-Analyzer" target="_blank">GitHub Repository</a>
+      <a class="expanded-screen-close">&times;</a>
+      <img class="expanded-image" onclick="hideExpandedImage()" alt="Expanded Image">
+      <p>Click on the Image to close zoom image</p>
+    </div>
+  </div>
+  
+  
+
+
+<script>
+    // Get all "Learn More" links
+    const learnMoreLinks = document.querySelectorAll('.learn-more');
+    const expandedScreens = document.querySelectorAll('.expanded-screen');
+    const expandedScreenCloses = document.querySelectorAll('.expanded-screen-close');
+
+    // Add click event listener to each "Learn More" link
+    learnMoreLinks.forEach((link, index) => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault();
+            showExpandedScreen(index);
+        });
+    });
+
+    // Function to show the expanded screen
+    function showExpandedScreen(index) {
+        expandedScreens[index].style.display = 'block';
+    }
+
+    // Function to hide the expanded screen
+    function hideExpandedScreen(index) {
+        expandedScreens[index].style.display = 'none';
+    }
+
+    // Close the expanded screen when close button is clicked
+    expandedScreenCloses.forEach((close, index) => {
+        close.addEventListener('click', () => {
+            hideExpandedScreen(index);
+        });
+    });
+
+    // Show the expanded image
+function showExpandedImage(image) {
+    const expandedImage = document.querySelector('.expanded-image');
+    expandedImage.src = image.src;
+    expandedImage.classList.add('active');
+  }
+  
+  // Hide the expanded image
+  function hideExpandedImage() {
+    const expandedImage = document.querySelector('.expanded-image');
+    expandedImage.src = '';
+    expandedImage.classList.remove('active');
+  }
+  
+
+    
+</script>
+</body>
+</html>
